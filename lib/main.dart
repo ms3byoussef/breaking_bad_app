@@ -1,4 +1,5 @@
 import 'package:breaking_bad/app_router.dart';
+import 'package:breaking_bad/presentation/screens/character_screen/characters_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,10 +16,6 @@ class BreakingBadApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: appRouter.generateRoute,
-      home: Container(
-        color: Colors.teal,
-        child: const Text('ms3b'),
-      ),
     );
   }
 }
