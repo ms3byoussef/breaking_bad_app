@@ -6,8 +6,9 @@ import 'package:breaking_bad/data/repository/character_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'data/model/character_model.dart';
 import 'data/web_services/character_web_services.dart';
-import 'presentation/screens/character_details_screen/character_details.dart';
+import 'presentation/screens/character_details_screen/character_details_screen.dart';
 import 'presentation/screens/character_screen/characters_screen.dart';
 
 class AppRouter {
@@ -27,11 +28,9 @@ class AppRouter {
           ),
         );
       case characterDetailsSCreen:
+        final character = settings.arguments as Character;
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => CharacterCubit(characterRepository),
-            child: const CharacterDetailsScreen(),
-          ),
+          builder: (_) => CharacterDetailsScreen(character: character),
         );
     }
   }

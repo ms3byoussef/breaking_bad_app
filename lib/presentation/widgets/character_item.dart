@@ -1,5 +1,7 @@
 import 'package:breaking_bad/constant/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../constant/strings.dart';
 import '../../data/model/character_model.dart';
 
 class CharacterItem extends StatelessWidget {
@@ -16,36 +18,46 @@ class CharacterItem extends StatelessWidget {
         color: MyColors.myWhite,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: GridTile(
-        footer: Container(
-          width: double.infinity,
-          color: Colors.black38,
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            character.name!,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              height: 1.6,
-              fontSize: 16,
-              color: MyColors.myWhite,
-              fontWeight: FontWeight.bold,
+      child: InkWell(
+        onTap: () => Navigator.pushNamed(
+          context,
+          characterDetailsSCreen,
+          arguments: character,
+        ),
+        child: GridTile(
+          footer: Container(
+            width: double.infinity,
+            color: Colors.black38,
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              character.name!,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                height: 1.6,
+                fontSize: 16,
+                color: MyColors.myWhite,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
+          child: Hero(
+            tag: character.charId!,
+            child: Container(
+                color: MyColors.myGray,
+                child: character.img!.isNotEmpty
+                    ? FadeInImage.assetNetwork(
+                        height: double.infinity,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        placeholderCacheHeight: 10,
+                        placeholderCacheWidth: 100,
+                        placeholder: "assets/images/loading.gif",
+                        image: character.img!)
+                    : Image.asset('assets/images/placeholder.jpg')),
+          ),
         ),
-        child: Container(
-            color: MyColors.myGray,
-            child: character.img!.isNotEmpty
-                ? FadeInImage.assetNetwork(
-                    height: double.infinity,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    placeholderCacheHeight: 10,
-                    placeholderCacheWidth: 100,
-                    placeholder: "assets/images/loading.gif",
-                    image: character.img!)
-                : Image.asset('assets/images/placeholder.jpg')),
       ),
     );
   }
