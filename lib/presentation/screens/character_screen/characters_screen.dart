@@ -1,9 +1,9 @@
-import 'package:breaking_bad/business_logic/cubit/character_cubit.dart';
 import 'package:breaking_bad/constant/colors.dart';
 import 'package:breaking_bad/presentation/widgets/character_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../business_logic/cubit/character/character_cubit.dart';
 import '../../../data/model/character_model.dart';
 
 class CharactersScreen extends StatefulWidget {

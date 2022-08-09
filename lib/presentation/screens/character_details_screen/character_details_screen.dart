@@ -1,5 +1,10 @@
+import 'dart:math';
+
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:breaking_bad/business_logic/cubit/quote/quote_cubit.dart';
 import 'package:breaking_bad/constant/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../data/model/character_model.dart';
 
@@ -68,8 +73,57 @@ class CharacterDetailsScreen extends StatelessWidget {
     );
   }
 
+  Widget checkIfQuotesAreLoaded(QuoteState state) {
+    if (state is QuoteLoaded) {
+      return displayRandomQuoteOrEmptySpace(state);
+    } else {
+      return showProgressIndicator();
+    }
+  }
+
+  Widget displayRandomQuoteOrEmptySpace(state) {
+    var quotes = (state).quotes;
+    if (quotes.length != 0) {
+      int randomQuoteIndex = Random().nextInt(quotes.length - 1);
+      return Center(
+        child: DefaultTextStyle(
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 22,
+            color: MyColors.myWhite,
+            shadows: [
+              Shadow(
+                  color: MyColors.myYellow,
+                  blurRadius: 7,
+                  offset: Offset(0, 0)),
+            ],
+          ),
+          child: AnimatedTextKit(
+            repeatForever: true,
+            pause: const Duration(milliseconds: 500),
+            animatedTexts: [
+              FlickerAnimatedText(
+                quotes[randomQuoteIndex].quote,
+              ),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return const SizedBox();
+    }
+  }
+
+  Widget showProgressIndicator() {
+    return const Center(
+      child: CircularProgressIndicator(color: MyColors.myYellow),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    BlocProvider.of<QuoteCubit>(context).getQuotes(character.name!);
+
     return Scaffold(
       backgroundColor: MyColors.myGray,
       body: CustomScrollView(
@@ -106,7 +160,15 @@ class CharacterDetailsScreen extends StatelessWidget {
                       characterInfo(' Actor /Actress : ', character.actorName!),
                       buildDivider(270),
                       const SizedBox(
-                        height: 300,
+                        height: 30,
+                      ),
+                      BlocBuilder<QuoteCubit, QuoteState>(
+                        builder: (context, state) {
+                          return checkIfQuotesAreLoaded(state);
+                        },
+                      ),
+                      const SizedBox(
+                        height: 50,
                       ),
                     ],
                   ),

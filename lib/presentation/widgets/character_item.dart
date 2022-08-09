@@ -1,5 +1,4 @@
 import 'package:breaking_bad/constant/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../constant/strings.dart';
 import '../../data/model/character_model.dart';
