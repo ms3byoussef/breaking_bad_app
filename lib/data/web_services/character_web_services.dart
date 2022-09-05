@@ -3,9 +3,9 @@
 import 'package:breaking_bad/constant/strings.dart';
 import 'package:dio/dio.dart';
 
-class CharaterWebServices {
+class CharacterWebServices {
   late Dio dio;
-  CharaterWebServices() {
+  CharacterWebServices() {
     BaseOptions baseOptions = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,

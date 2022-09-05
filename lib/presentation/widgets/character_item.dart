@@ -51,7 +51,7 @@ class CharacterItem extends StatelessWidget {
                         width: double.infinity,
                         fit: BoxFit.cover,
                         placeholderCacheHeight: 10,
-                        placeholderCacheWidth: 100,
+                        placeholderCacheWidth: 10,
                         placeholder: "assets/images/loading.gif",
                         image: character.img!)
                     : Image.asset('assets/images/placeholder.jpg')),

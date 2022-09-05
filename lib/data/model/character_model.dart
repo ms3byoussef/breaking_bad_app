@@ -4,22 +4,22 @@ class Character {
   String? nickName;
   String? img;
   List<dynamic>? jobs;
-  String? stutesIfDeadOrAlive;
-  List<dynamic>? appearnceOfSeasons;
+  String? statesIfDeadOrAlive;
+  List<dynamic>? appearanceOfSeasons;
   String? actorName;
   String? categoryForTwoSeries;
-  List<dynamic>? betterCallSoulAppearnce;
+  List<dynamic>? betterCallSoulAppearance;
   Character({
     this.charId,
     this.name,
     this.nickName,
     this.img,
     this.jobs,
-    this.stutesIfDeadOrAlive,
-    this.appearnceOfSeasons,
+    this.statesIfDeadOrAlive,
+    this.appearanceOfSeasons,
     this.actorName,
     this.categoryForTwoSeries,
-    this.betterCallSoulAppearnce,
+    this.betterCallSoulAppearance,
   });
   Character.fromJson(Map<dynamic, dynamic> map)
       : charId = map['char_id'],
@@ -27,11 +27,11 @@ class Character {
         nickName = map['nickname'],
         img = map['img'],
         jobs = map['occupation'],
-        stutesIfDeadOrAlive = map['status'],
-        appearnceOfSeasons = map['appearance'],
+        statesIfDeadOrAlive = map['status'],
+        appearanceOfSeasons = map['appearance'],
         actorName = map['portrayed'],
         categoryForTwoSeries = map['category'],
-        betterCallSoulAppearnce = map['better_call_saul_appearance'];
+        betterCallSoulAppearance = map['better_call_saul_appearance'];
 
   Map<dynamic, dynamic> toJson() => {
         'char_id': charId,
@@ -39,11 +39,11 @@ class Character {
         'nickname': nickName,
         'img': img,
         'occupation': jobs,
-        'status': stutesIfDeadOrAlive,
-        'appearance': appearnceOfSeasons,
+        'status': statesIfDeadOrAlive,
+        'appearance': appearanceOfSeasons,
         'portrayed': actorName,
         'category': categoryForTwoSeries,
-        'better_call_saul_appearance': betterCallSoulAppearnce,
+        'better_call_saul_appearance': betterCallSoulAppearance,
       };
 
   Character copyWith({
@@ -52,11 +52,11 @@ class Character {
     String? nickName,
     String? img,
     List<dynamic>? jobs,
-    String? stutesIfDeadOrAlive,
-    List<dynamic>? appearnceOfSeasons,
+    String? statesIfDeadOrAlive,
+    List<dynamic>? appearanceOfSeasons,
     String? actorName,
     String? categoryForTwoSeries,
-    List<dynamic>? betterCallSoulAppearnce,
+    List<dynamic>? betterCallSoulAppearance,
   }) {
     return Character(
       charId: charId,
@@ -64,8 +64,8 @@ class Character {
       nickName: nickName,
       img: img,
       jobs: jobs,
-      stutesIfDeadOrAlive: stutesIfDeadOrAlive,
-      appearnceOfSeasons: appearnceOfSeasons,
+      statesIfDeadOrAlive: statesIfDeadOrAlive,
+      appearanceOfSeasons: appearanceOfSeasons,
       actorName: actorName,
       categoryForTwoSeries: categoryForTwoSeries,
     );

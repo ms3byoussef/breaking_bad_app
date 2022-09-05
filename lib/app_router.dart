@@ -16,7 +16,7 @@ class AppRouter {
   late CharacterRepository characterRepository;
   late CharacterCubit characterCubit;
   AppRouter() {
-    characterRepository = CharacterRepository(CharaterWebServices());
+    characterRepository = CharacterRepository(CharacterWebServices());
     characterCubit = CharacterCubit(characterRepository);
   }
   Route? generateRoute(RouteSettings settings) {

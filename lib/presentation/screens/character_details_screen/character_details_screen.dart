@@ -145,16 +145,16 @@ class CharacterDetailsScreen extends StatelessWidget {
                           'Appeared in : ', character.categoryForTwoSeries!),
                       buildDivider(250),
                       characterInfo('Seasons : ',
-                          character.appearnceOfSeasons!.join(' / ')),
+                          character.appearanceOfSeasons!.join(' / ')),
                       buildDivider(280),
                       characterInfo(
-                          ' DeadOrAlive : ', character.stutesIfDeadOrAlive!),
+                          ' DeadOrAlive : ', character.statesIfDeadOrAlive!),
                       buildDivider(270),
-                      character.betterCallSoulAppearnce!.isEmpty
+                      character.betterCallSoulAppearance!.isEmpty
                           ? const SizedBox()
-                          : characterInfo('betterCallSoul Appearnce : ',
-                              character.betterCallSoulAppearnce!.join(' / ')),
-                      character.betterCallSoulAppearnce!.isEmpty
+                          : characterInfo('betterCallSoul Appearance : ',
+                              character.betterCallSoulAppearance!.join(' / ')),
+                      character.betterCallSoulAppearance!.isEmpty
                           ? const SizedBox()
                           : buildDivider(150),
                       characterInfo(' Actor /Actress : ', character.actorName!),
@@ -168,7 +168,7 @@ class CharacterDetailsScreen extends StatelessWidget {
                         },
                       ),
                       const SizedBox(
-                        height: 50,
+                        height: 500,
                       ),
                     ],
                   ),
